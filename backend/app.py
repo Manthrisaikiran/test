@@ -359,6 +359,7 @@ import base64
 from io import BytesIO
 from datetime import datetime
 import gdown
+from keras.models import load_model
 
 # Silence tensorflow logs
 os.environ["TF_CPP_MIN_LOG_LEVEL"] = "2"
@@ -390,12 +391,18 @@ if not os.path.exists(MODEL_PATH):
 
     gdown.download(url, MODEL_PATH, quiet=False)
 
+
+
 # -------------------------------------------------
 # Load Model
 # -------------------------------------------------
 print("Loading model...")
 
-model = load_model(MODEL_PATH, compile=False)
+
+
+model = load_model(MODEL_PATH, compile=False, safe_mode=False)
+
+print("Model loaded successfully")
 
 class_labels = [
     "adenocarcinoma",

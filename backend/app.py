@@ -392,8 +392,11 @@ if not os.path.exists(MODEL_PATH):
 # -------------------------------------------------
 # Load Model
 # -------------------------------------------------
+# print("Loading model...")
+# model = load_model(MODEL_PATH)
 print("Loading model...")
-model = load_model(MODEL_PATH)
+
+model = load_model(MODEL_PATH, compile=False)
 
 class_labels = [
     "adenocarcinoma",

@@ -350,9 +350,9 @@
 from flask import Flask, render_template, request, send_from_directory, redirect, url_for
 import numpy as np
 import cv2
+import tensorflow as tf
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing import image
-import tensorflow as tf
 import sqlite3
 import os
 import base64
@@ -360,6 +360,7 @@ from io import BytesIO
 from datetime import datetime
 import gdown
 
+# Silence tensorflow logs
 os.environ["TF_CPP_MIN_LOG_LEVEL"] = "2"
 
 # -------------------------------------------------
@@ -392,8 +393,6 @@ if not os.path.exists(MODEL_PATH):
 # -------------------------------------------------
 # Load Model
 # -------------------------------------------------
-# print("Loading model...")
-# model = load_model(MODEL_PATH)
 print("Loading model...")
 
 model = load_model(MODEL_PATH, compile=False)
@@ -574,23 +573,6 @@ def predict():
 
     confidences = {class_labels[i]: float(preds[i]) for i in range(len(class_labels))}
 
-    if confidence < 90:
-
-        return render_template(
-            "results.html",
-            patient_name=patient_name,
-            prediction="Invalid Image (Not Lung CT)",
-            confidence="0",
-            coverage="0",
-            stage="N/A",
-            confidences={},
-            gradcam=None,
-            original=None,
-            age=age,
-            gender=gender,
-            smoking=smoking
-        )
-
     heatmap, _ = get_gradcam(img_array_norm, model)
 
     original = cv2.cvtColor(np.array(img), cv2.COLOR_RGB2BGR)
@@ -712,4 +694,6 @@ if __name__ == "__main__":
     port = int(os.environ.get("PORT", 10000))
 
     app.run(host="0.0.0.0", port=port)
+
+
 

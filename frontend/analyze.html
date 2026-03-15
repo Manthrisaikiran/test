@@ -1,0 +1,154 @@
+<!-- ```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Analyze CT Scan</title>
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gradient-to-br from-blue-100 via-white to-green-100 min-h-screen flex items-center justify-center">
+
+<div class="bg-white shadow-xl rounded-2xl p-10 w-full max-w-xl">
+
+<h2 class="text-2xl font-bold text-center mb-6">
+Upload Lung CT Scan
+</h2>
+
+<form action="/predict" method="POST" enctype="multipart/form-data" class="space-y-4">
+
+<input
+type="text"
+name="patient_name"
+placeholder="Patient Name"
+required
+class="w-full border rounded-lg px-3 py-2"
+/>
+
+<input
+type="number"
+name="age"
+placeholder="Age"
+required
+class="w-full border rounded-lg px-3 py-2"
+/>
+
+<select name="gender" required class="w-full border rounded-lg px-3 py-2">
+<option value="">Select Gender</option>
+<option value="Male">Male</option>
+<option value="Female">Female</option>
+</select>
+
+<select name="smoking" required class="w-full border rounded-lg px-3 py-2">
+<option value="">Smoking History</option>
+<option value="Yes">Yes</option>
+<option value="No">No</option>
+</select>
+
+<input
+type="file"
+name="scan"
+accept="image/*"
+required
+class="w-full border rounded-lg px-3 py-2"
+/>
+
+<button
+type="submit"
+class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700">
+Analyze Scan
+</button>
+
+</form>
+
+</div>
+
+</body>
+</html>
+``` -->
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Analyze CT Scan</title>
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gradient-to-br from-blue-100 via-white to-green-100 min-h-screen flex items-center justify-center">
+
+<div class="bg-white shadow-xl rounded-2xl p-10 w-full max-w-xl">
+
+<h2 class="text-2xl font-bold text-center mb-6">
+Upload Lung CT Scan
+</h2>
+
+<form action="/predict" method="POST" enctype="multipart/form-data" class="space-y-4">
+
+<input
+type="text"
+name="patient_name"
+placeholder="Patient Name"
+required
+class="w-full border rounded-lg px-3 py-2"
+/>
+
+<input
+type="number"
+name="age"
+placeholder="Age"
+required
+class="w-full border rounded-lg px-3 py-2"
+/>
+
+<select name="gender" required class="w-full border rounded-lg px-3 py-2">
+<option value="">Select Gender</option>
+<option value="Male">Male</option>
+<option value="Female">Female</option>
+</select>
+
+<select name="smoking" required class="w-full border rounded-lg px-3 py-2">
+<option value="">Smoking History</option>
+<option value="Yes">Yes</option>
+<option value="No">No</option>
+</select>
+
+<input
+type="file"
+name="scan"
+accept="image/*"
+required
+class="w-full border rounded-lg px-3 py-2"
+/>
+
+<button
+type="submit"
+class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700">
+Analyze Scan
+</button>
+
+</form>
+
+<!-- Navigation Buttons -->
+<div class="flex justify-between mt-6">
+
+<a href="/"
+class="bg-gray-600 text-white px-5 py-2 rounded-lg hover:bg-gray-700">
+Home
+</a>
+
+<a href="/admin"
+class="bg-green-600 text-white px-5 py-2 rounded-lg hover:bg-green-700">
+Admin Panel
+</a>
+
+</div>
+
+</div>
+
+</body>
+</html>
+```

@@ -1,0 +1,6 @@
+vgg16_best.h5
+backend/uploads/
+smart_diagnosis.db
+.vscode/
+.DS_Store
+__pycache__/

@@ -719,6 +719,7 @@ import base64
 from io import BytesIO
 from datetime import datetime
 import gdown
+import keras
 
 # -------------------------------------------------
 # FIX OLD MODEL COMPATIBILITY
@@ -763,9 +764,20 @@ if not os.path.exists(MODEL_PATH):
 # -------------------------------------------------
 # Load Model
 # -------------------------------------------------
+# print("Loading model...")
+
+# model = tf.keras.models.load_model(MODEL_PATH, compile=False)
+
+# print("Model loaded successfully")
+
+
 print("Loading model...")
 
-model = tf.keras.models.load_model(MODEL_PATH, compile=False)
+model = keras.models.load_model(
+    MODEL_PATH,
+    compile=False,
+    safe_mode=False
+)
 
 print("Model loaded successfully")
 
